@@ -1,4 +1,5 @@
 """Run every SQL file in sql/reports/ and print the results."""
+
 import sys
 
 import duckdb
@@ -18,7 +19,9 @@ def main():
     try:
         for sql_file in sorted(REPORTS_DIR.glob("*.sql")):
             sql = sql_file.read_text(encoding="utf-8")
-            title = sql.splitlines()[0].lstrip("- ").strip()   # first comment line = title
+            title = (
+                sql.splitlines()[0].lstrip("- ").strip()
+            )  # first comment line = title
             print(f"\n{title}")
             con.sql(sql).show(max_rows=40)
     finally:
