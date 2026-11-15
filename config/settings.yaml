@@ -5,7 +5,7 @@ api:
 rates:
   base_currency: AUD
   currencies: [USD, EUR, CNY, JPY]
-
+  
 incremental:
   initial_start_date: 2020-01-01   # first run loads history from this date
   lookback_days: 3                 # re-load the last few days to catch corrections
